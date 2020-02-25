@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:500|Fira+Sans:400,800&display=swap');
+
+/* Variables */
+
+.sheet-main, .sheet-rolltemplate-knave {
+    /* Colors */
+    --purple-dark:  #c594c5;
+    --purple:       #e0cce0;
+    --purple-light: #efe6ef;
+    --blue-dark:    #6699cc;
+    --blue:         #b7cce1;
+    --blue-light:   #dde6ee;
+    --teal-dark:    #5fb3b3;
+    --teal:         #b3d5d5;
+    --teal-light:   #dbe8e8;
+    --green-dark:   #99c794;
+    --green:        #cee1cc;
+    --green-light:  #e7efe6;
+    --yellow-dark:  #fac863;
+    --yellow:       #f6e1b8;
+    --yellow-light: #f8efde;
+    --orange-dark:  #f99157;
+    --orange:       #f5cab2;
+    --orange-light: #f7e5db;
+    --brown-dark:   #ab7967;
+    --brown:        #d2bdb6;
+    --brown-light:  #e7d5dc;
+    --red-dark:     #ec5f67;
+    --red:          #efb5b9;
+    --red-light:    #f4ddde;
+    /* Fonts */
+    --default-mono: 'Fira Mono';
+    --default-sans: 'Fira Sans';
+}
+
+/* Grids */
+
+.sheet-main {
+    display: grid;
+    grid-gap: 4px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "character stats";
+}
+
+.sheet-action {
+    display: grid;
+    grid-gap: 4px;
+    grid-template-areas: "stats"
+                         "weapons"
+                         "armor";
+}
+
+.sheet-stats_grid {
+    display: grid;
+    grid-area: stats;
+    grid-gap: 1em;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "header    header"
+                         "abilities combat"
+                         "other     other";
+    grid-template-rows: 1.2em .8fr 2em;
+}
+
+.sheet-weapons_grid {
+    display: grid;
+    grid-area: weapons;
+    grid-gap: 2px;
+    grid-template-columns: 3em 3fr 6em repeat(4, 5em);
+}
+
+.sheet-armor_grid {
+    display: grid;
+    grid-area: armor;
+    grid-gap: 2px;
+    grid-template-columns: 3em 4fr 1fr 1fr 1fr;
+}
+
+/* General */
+
+.sheet-main {
+    font-family: var(--default-sans);
+    font-size: 1rem;
+    padding: 0;
+    padding-right: 2em;
+}
+
+.sheet-main h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    box-sizing: border-box;
+    height: 2em;
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 0;
+    vertical-align: center;
+}
+
+input, select {
+    box-sizing: border-box;
+    height: 2em;
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 0 4px;
+}
+
+.sheet-numeric {
+    font-family: 'Fira Mono';
+}
+
+input.sheet-numeric, select.sheet-menu{
+    text-align: right;
+    text-align-last: right;
+}
+
+label {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+span.sheet-label {
+    display: block;
+    font-weight: bold;
+}
+textarea {
+    box-sizing: border-box;
+    height: 4em;
+    margin: 0;
+    width: 100%;
+}
+
+tr>th:first-child {
+    text-align: right !important;
+}
+
+td, th {
+    padding: 2px;
+    text-align: center;
+}
+
+.sheet-section {
+    padding: 1em;
+}
+
+.sheet-flex-col {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.sheet-flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.sheet-max {
+    grid-area: max;
+    grid-column-start: 2;
+    grid-column-end; 2;
+}
+
+.sheet-cur {
+    grid-area: cur;
+    grid-column-start: 3;
+    grid-column-end; 3;
+}
+
+/* Sections */
+
+/* Character & Background*/
+
+div.sheet-character.sheet-section {
+    background-color: var(--teal-light);
+    border: 2px groove var(--teal-dark);
+    grid-area: character;
+}
+
+.sheet-character table, .sheet-action table {
+    min-width: 20em;
+    width: 100%;
+}
+
+div.sheet-inventory, div.sheet-notes {
+    border-top: 1px solid var(--teal-dark);
+    margin-top: 1em;
+}
+tr>th.sheet-background:first-child, tr>th.sheet-inventory:first-child {
+    text-align: center !important;
+}
+
+input.sheet-background, textarea.sheet-background {
+    width: 100%;
+}
+
+table.sheet-background, tr.sheet-background, td.sheet-background {
+    margin: 0;
+    padding: 0;
+    vertical-align: center;
+}
+
+table.sheet-background, table.sheet-inventory {
+    width: 100%;
+}
+
+td.sheet-background {
+    vertical-align: center;
+}
+
+input.sheet-name, input.sheet-occupation {
+    width: 100%;
+}
+
+div.sheet-inv {
+    grid-area: inv;
+}
+
+input.sheet-money {
+    text-align: right;
+}
+
+input.sheet-item_name {
+    width: 100%;
+}
+
+div.sheet-notes {
+    grid-area: notes;
+}
+
+label.sheet-notes {
+    text-align: center;
+}
+
+/* Stats & Actions */
+
+div.sheet-action.sheet-section {
+    background-color: var(--teal-light);
+    border: 2px groove var(--teal-dark);
+    grid-area: stats;
+    width: 100%;
+}
+
+div.sheet-action input {
+    min-width: 3.5em;
+}
+
+div.sheet-stats_grid h1 {
+    grid-area: header;
+}
+
+div.sheet-ability_scores {
+    grid-area: abilities;
+}
+
+div.sheet-combat_stats {
+    grid-area: combat;
+}
+
+div.sheet-other {
+    grid-area: other;
+}
+
+table.sheet-other input {
+    width: 100%;
+}
+
+div.sheet-weapons, div.sheet-armor {
+    border-top: 1px solid var(--teal-dark);
+}
+.sheet-weapons_name, .sheet-armor_name {
+    font-family: var(--default-sans);
+    width: 100%;
+}
+
+.sheet-weapons_damage, .sheet-weapons_bonus, .sheet-weapons_hands, .sheet-weapons_quality,
+.sheet-weapons_slots {
+    font-family: var(--default-mono);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+.sheet-armor_defense, .sheet-armor_slots, .sheet-armor_quality {
+    font-family: var(--default-mono);
+    width: 100% !important;
+}
+
+.sheet-ability_scores label, .sheet-combat_stats label {
+    /* grid-area: label; */
+    font-size: .8rem;
+    text-align: right;
+    align-self: center;
+}
+
+.sheet-effects table {
+    align-self: start;
+    width: 100%;
+}
+
+/* Roll Templates */
+
+.sheet-rolltemplate-knave .sheet-container {
+    background-color: var(--orange-light);
+    border: 1px solid #000;
+    font-family: var(--default-sans);
+    padding: 1em;
+}
+
+.sheet-rolltemplate-knave h1 {
+    border-bottom: 1px solid #000;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.sheet-rolltemplate-knave .sheet-label {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-knave table {
+    font-size: 1.2em;
+    /* line-height: 150%; */
+    width: 80%;
+}
+
+.sheet-rolltemplate-knave td {
+    padding-bottom: 0.7em;
+}
+
+.sheet-rolltemplate-knave th {
+    text-align: right;
+    padding-right: 1em;
+}
+
+.sheet-rolltemplate-knave .sheet-numeric {
+    font-family: var(--default-mono);
+    text-align: center;
+}
+
+.sheet-rolltemplate-knave p.sheet-save {
+    text-align: center;
+}
+
+.sheet-rolltemplate-knave p.sheet-outcome {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 130%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.sheet-rolltemplate-knave p.sheet-success {
+    color: var(--green-dark);
+}
+
+.sheet-rolltemplate-knave p.sheet-failure {
+    color: var(--red-dark);
+}
