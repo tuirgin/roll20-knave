@@ -11,14 +11,11 @@
                     />
                 </td>
             </tr>
-            <tr>
-                <th class="character description">Description</th>
-                <td><textarea class="character description"
-                              name="attr_character_description"
-                    ></textarea>
-                </td>
-            </tr>
         </table>
+        <h1>Description</h1>
+        <textarea class="character description"
+                  name="attr_character_description"
+        ></textarea>
         <div class="character inventory sub-section">
             <h1>Inventory</h1>
             <fieldset class="repeating_item">
@@ -194,6 +191,12 @@
                                     name="attr_armor_defense"
                                     type="number"
                                 /></td>
+                            <td><button
+                                    name="roll_ArmorSave"
+                                    title="Armor Save"
+                                    type="roll"
+                                    value="&{template:default} {{character=@{character_name}}} {{name=Armor Save}} {{1st Roll=[[1d20+[[@{armor_bonus}]]]]}} {{2nd Roll=[[1d20+[[@{armor_bonus}]]]]}}"
+                                ></button></td>
                     </tr>
                     <thead><th></th><th>Max</th><th>Cur</th></thead>
                     <tr>
@@ -238,7 +241,7 @@
                             name="roll_attack"
                             title="Roll Weapon Damage"
                             type="roll"
-                            value="&{template:eb} {{character=@{character_name}}} {{name=@{weapon}}} {{damage=[[@{damage}]]}}"
+                            value="&{template:default} {{character=@{character_name}}} {{name=@{weapon}}}  {{Attack (1st Roll)=[[1d20+[[@{str_bonus}]]]]}} {{Attack (2nd Roll)=[[1d20+[[@{str_bonus}]]]]}} {{damage=[[@{damage}]]}}"
                     ></button>
                     <input class="weapons_name"
                            name="attr_weapon"
